@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
   <br />
     <img src="public/readme/hero.webp" alt="Project Banner">
@@ -122,3 +123,6 @@ Open [http://localhost:5173](http://localhost:5173) in your browser to view the 
 Contributions are welcome! If you'd like to contribute to CVLens, please feel free to submit issues, feature requests, or pull requests. 
 
 This project serves as a practical example of modern web development using React, AI integration, and cloud storage solutions. It demonstrates best practices in component architecture, state management, and user experience design.
+=======
+
+>>>>>>> 1b604223ecf624bb8291a46babfb7082eb80a5df
