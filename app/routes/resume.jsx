@@ -1,9 +1,9 @@
 import { Link, useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
-import { usePuterStore } from "~/lib/puter";
-import Summary from "~/components/Summary";
-import ATS from "~/components/ATS";
-import Details from "~/components/Details";
+import { usePuterStore } from "../lib/puter";
+import Summary from "../components/Summary";
+import ATS from "../components/ATS";
+import Details from "../components/Details";
 
 export const meta = () => ([
     { title: 'CVLens | Review ' },

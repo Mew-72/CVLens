@@ -8,7 +8,7 @@ import {
 } from "react-router";
 
 import "./app.css";
-import { usePuterStore } from "~/lib/puter";
+import { usePuterStore } from "../lib/puter";
 import { useEffect } from "react";
 
 export const links = () => [

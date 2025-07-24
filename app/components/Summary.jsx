@@ -1,5 +1,5 @@
-import ScoreGauge from "~/components/ScoreGauge";
-import ScoreBadge from "~/components/ScoreBadge";
+import ScoreGauge from "./ScoreGauge";
+import ScoreBadge from "./ScoreBadge";
 
 const Category = ({ title, score }) => {
     const textColor = score > 70 ? 'text-green-600'
