@@ -4,6 +4,7 @@ import { usePuterStore } from "../lib/puter";
 import Summary from "../components/Summary";
 import ATS from "../components/ATS";
 import Details from "../components/Details";
+import { safeJsonParse } from "../lib/utils";
 
 export const meta = () => ([
     { title: 'CVLens | Review ' },
@@ -28,7 +29,11 @@ const Resume = () => {
 
             if (!resume) return;
 
-            const data = JSON.parse(resume);
+            const data = safeJsonParse(resume);
+            if (!data) {
+                console.error('Failed to parse resume data');
+                return;
+            }
 
             const resumeBlob = await fs.read(data.resumePath);
             if (!resumeBlob) return;

@@ -3,6 +3,7 @@ import ResumeCard from "../components/ResumeCard";
 import { usePuterStore } from "../lib/puter";
 import { Link, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
+import { safeJsonParse } from "../lib/utils";
 
 export function meta() {
     return [
@@ -25,9 +26,10 @@ export function meta() {
 
             const resumes = await kv.list('resume:*', true);
 
-            const parsedResumes = resumes?.map((resume) => (
-                JSON.parse(resume.value)
-            ))
+            const parsedResumes = resumes?.map((resume) => {
+                const parsed = safeJsonParse(resume.value);
+                return parsed; // This will return null for invalid JSON, which will be filtered out
+            }).filter(Boolean); // Remove null/invalid entries
 
             setResumes(parsedResumes || []);
             setLoadingResumes(false);

@@ -19,3 +19,12 @@ export function formatSize(bytes) {
 }
 
 export const generateUUID = () => crypto.randomUUID();
+
+export const safeJsonParse = (jsonString, fallback = null) => {
+    try {
+        return JSON.parse(jsonString);
+    } catch (error) {
+        console.error('JSON parse error:', error);
+        return fallback;
+    }
+};
