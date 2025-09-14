@@ -4,7 +4,7 @@ import FileUploader from "../components/FileUploader";
 import { usePuterStore } from "../lib/puter";
 import { useNavigate } from "react-router";
 import { convertPdfToImage } from "../lib/pdf2img";
-import { generateUUID } from "../lib/utils";
+import { generateUUID, safeJsonParse } from "../lib/utils";
 import { prepareInstructions } from "../../constants";
 
 const Upload = () => {
@@ -56,7 +56,10 @@ const Upload = () => {
             ? feedback.message.content
             : feedback.message.content[0].text;
 
-        data.feedback = JSON.parse(feedbackText);
+        const parsedFeedback = safeJsonParse(feedbackText);
+        if (!parsedFeedback) return setStatusText('Error: Invalid feedback format received');
+
+        data.feedback = parsedFeedback;
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
         console.log(data);
