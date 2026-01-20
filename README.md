@@ -16,7 +16,7 @@
 
 # CVLens - AI Resume Analyzer
 
-*Originally built following a JavaScript Mastery tutorial, then converted from TypeScript to JavaScript*
+*Originally built following a JavaScript Mastery tutorial*
 
 ## My Contributions
 - ✅ Converted entire codebase from TypeScript to JavaScript/JSX
